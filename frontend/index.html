@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Load Balancer Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <div class="sidebar">
+        <h2>⚡ LB System</h2>
+    </div>
+
+    <div class="main">
+
+        <h1>Intelligent Load Balancer</h1>
+
+        <div class="stats">
+            <div class="stat-card">Servers<br><b>3</b></div>
+            <div class="stat-card">Requests<br><b id="reqCount">0</b></div>
+            <div class="stat-card">Load<br><b id="activeLoad">Low</b></div>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Add Request</h3>
+                <input id="size" type="number" placeholder="Enter size">
+                <button onclick="addRequest()">Send</button>
+                <button onclick="resetServers()">Reset</button>
+            </div>
+
+            <div class="card">
+                <h3>Server Loads</h3>
+                <ul id="loads"></ul>
+            </div>
+
+            <div class="card">
+                <h3>Shortest Path</h3>
+                <button onclick="getPath()">Show</button>
+                <p id="path">Click Show</p>
+            </div>
+
+            <div class="card">
+                <h3>Chart</h3>
+                <canvas id="chart"></canvas>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
