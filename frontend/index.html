@@ -10,43 +10,73 @@
 
 <div class="layout">
 
+    <!-- Sidebar -->
     <div class="sidebar">
         <h2>⚡ LB System</h2>
     </div>
 
+    <!-- Main Content -->
     <div class="main">
 
         <h1>Intelligent Load Balancer</h1>
 
+        <!-- Stats -->
         <div class="stats">
             <div class="stat-card">Servers<br><b>3</b></div>
             <div class="stat-card">Requests<br><b id="reqCount">0</b></div>
-            <div class="stat-card">Load<br><b id="activeLoad">Low</b></div>
+            <div class="stat-card">Load Status<br><b id="activeLoad">Low</b></div>
         </div>
 
+        <!-- Grid -->
         <div class="grid">
 
+            <!-- Add Request -->
             <div class="card">
                 <h3>Add Request</h3>
-                <input id="size" type="number" placeholder="Enter size">
-                <button onclick="addRequest()">Send</button>
+
+                <input id="size" type="number" placeholder="Enter request size">
+
+                <select id="algo">
+                    <option value="greedy">Greedy</option>
+                    <option value="round">Round Robin</option>
+                    <option value="random">Random</option>
+                </select>
+
+                <button onclick="addRequest()">Send Request</button>
+
+                <button onclick="startSim()">Start Simulation</button>
+                <button onclick="stopSim()">Stop Simulation</button>
+
                 <button onclick="resetServers()">Reset</button>
+                <p id="msg"></p>
+              <p id="simStatus">Simulation: OFF</p>
+                <p id="currentAlgo"></p>
             </div>
 
+            <!-- Server Loads -->
             <div class="card">
                 <h3>Server Loads</h3>
                 <ul id="loads"></ul>
             </div>
 
+            <!-- Shortest Path -->
             <div class="card">
                 <h3>Shortest Path</h3>
-                <button onclick="getPath()">Show</button>
+                <button onclick="getPath()">Show Path</button>
                 <p id="path">Click Show</p>
             </div>
 
+            <!-- Chart -->
             <div class="card">
-                <h3>Chart</h3>
+                <h3>Load Chart</h3>
                 <canvas id="chart"></canvas>
+            </div>
+
+            <!-- Algorithm Comparison -->
+            <div class="card">
+                <h3>Algorithm Comparison</h3>
+                <button onclick="compare()">Compare</button>
+                <p id="compare"></p>
             </div>
 
         </div>

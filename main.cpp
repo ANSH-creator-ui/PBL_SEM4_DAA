@@ -37,15 +37,32 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    // 🔹 Load Balancer Mode
-    if (argc > 1)
+    // 🔹 Load Balancing Mode
+    if (argc > 2)
     {
         int size = atoi(argv[1]);
+        string algo = argv[2];
 
-        Request req(1, size);
-        Server *s = lb.assignRequest(req);
+        int server_id = 0;
 
-        cout << s->id << endl;
+        if (algo == "greedy")
+        {
+            Request req(1, size);
+            Server *s = lb.assignRequest(req);
+            server_id = s->id;
+        }
+        else if (algo == "round")
+        {
+            static int rr = 0;
+            server_id = rr % 3;
+            rr++;
+        }
+        else if (algo == "random")
+        {
+            server_id = rand() % 3;
+        }
+
+        cout << server_id << endl;
         return 0;
     }
 
