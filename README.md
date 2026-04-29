@@ -1,2 +1,2 @@
-#Intelligent Load Balancer And Network Optimizer
+# Intelligent Load Balancer And Network Optimizer
 The Intelligent Load Balancer and Network Optimizer is a system designed to efficiently distribute incoming requests across multiple servers while optimizing network performance. It ensures minimal response time, balanced server utilization, and improved overall system efficiency. The project combines backend processing with system-level optimization techniques to simulate real-world traffic handling.
